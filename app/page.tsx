@@ -46,6 +46,13 @@ export default function Home() {
     );
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto">
@@ -54,13 +61,16 @@ export default function Home() {
             bucx.
           </div>
           <div className="flex items-center gap-12">
-            <a
-              href="#features"
-              className="text-gray-600 hover:text-gray-900 font-normal"
+            <button
+              onClick={() => scrollToSection("features")}
+              className="text-gray-600 hover:text-gray-900 font-normal cursor-pointer"
             >
               Features
-            </a>
-            <button className="bg-[#0C1B33] text-white px-8 py-2.5 rounded-lg hover:bg-[#1e293b] font-normal transition-colors">
+            </button>
+            <button
+              onClick={() => scrollToSection("waitlist")}
+              className="bg-[#0C1B33] text-white px-8 py-2.5 rounded-lg hover:bg-[#1e293b] font-normal transition-colors"
+            >
               Join waitlist
             </button>
           </div>
@@ -121,14 +131,29 @@ export default function Home() {
             </p>
 
             <div className="flex items-center gap-6 mt-4">
-              <button className="from-[#917AFD] to-[#6246EA] bg-gradient-to-r text-white px-8 py-3 font-medium rounded-lg hover:opacity-90 transition-all">
+              <button
+                onClick={() => scrollToSection("waitlist")}
+                className="from-[#917AFD] to-[#6246EA] bg-gradient-to-r text-white px-8 py-3 font-medium rounded-lg hover:opacity-90 transition-all"
+              >
                 Join the waitlist
               </button>
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-gray-300"></div>
-                  <div className="w-8 h-8 rounded-full bg-gray-400"></div>
-                  <div className="w-8 h-8 rounded-full bg-gray-500"></div>
+                  <img
+                    src="https://randomuser.me/api/portraits/men/1.jpg"
+                    alt="User avatar"
+                    className="w-8 h-8 rounded-full border-2 border-white"
+                  />
+                  <img
+                    src="https://randomuser.me/api/portraits/women/2.jpg"
+                    alt="User avatar"
+                    className="w-8 h-8 rounded-full border-2 border-white"
+                  />
+                  <img
+                    src="https://randomuser.me/api/portraits/men/3.jpg"
+                    alt="User avatar"
+                    className="w-8 h-8 rounded-full border-2 border-white"
+                  />
                 </div>
                 <span className="text-sm text-gray-600">
                   Join 300+ professionals
@@ -158,7 +183,7 @@ export default function Home() {
       </div>
 
       {/* Features Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20">
+      <div id="features" className="max-w-7xl mx-auto px-4 sm:px-6 py-20">
         <h2 className="text-4xl sm:text-5xl font-medium text-center mb-16 text-[#0C1B33]">
           Everything to make your money
           <br />
@@ -288,7 +313,7 @@ export default function Home() {
         </div>
 
         {/* Content */}
-        <div className="text-center max-w-2xl mx-auto">
+        <div id="waitlist" className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl sm:text-5xl font-medium text-[#0C1B33] mb-6 tracking-tightd b">
             The world has borders but your finances shouldn&apos;t
           </h2>
