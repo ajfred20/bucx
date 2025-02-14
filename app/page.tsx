@@ -38,6 +38,9 @@ const featuresContent = [
 export default function Home() {
   const [activeFeature, setActiveFeature] = useState("global-accounts");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [expandedFeature, setExpandedFeature] = useState<string | null>(
+    "global-accounts"
+  );
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % featuresContent.length);
@@ -57,19 +60,19 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto">
         <nav className="flex items-center justify-between px-4 sm:px-6 py-6">
-          <div className="font-semibold text-4xl tracking-tight text-[#0C1B33]">
+          <div className="font-semibold text-3xl sm:text-4xl tracking-tight text-[#0C1B33]">
             bucx.
           </div>
-          <div className="flex items-center gap-12">
+          <div className="flex items-center gap-4 sm:gap-12">
             <button
               onClick={() => scrollToSection("features")}
-              className="text-gray-600 hover:text-gray-900 font-normal cursor-pointer"
+              className="text-gray-600 hover:text-gray-900 font-normal cursor-pointer text-sm sm:text-base"
             >
               Features
             </button>
             <button
               onClick={() => scrollToSection("waitlist")}
-              className="bg-[#0C1B33] text-white px-8 py-2.5 rounded-lg hover:bg-[#1e293b] font-normal transition-colors"
+              className="bg-[#0C1B33] text-white px-4 sm:px-8 py-2 sm:py-2.5 rounded-lg hover:bg-[#1e293b] font-normal transition-colors text-sm sm:text-base whitespace-nowrap"
             >
               Join waitlist
             </button>
@@ -79,11 +82,11 @@ export default function Home() {
         {/* Hero Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 sm:px-6 pt-20 pb-16">
           {/* Left Column - Text Content */}
-          <div className="flex flex-col gap-6">
-            <h1 className="text-[#0C1B33] text-5xl sm:text-6xl font-medium leading-none">
-              Borderless{" "}
-              <span className="inline-flex items-center gap-2">
-                <span className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+          <div className="flex flex-col gap-4 sm:gap-6">
+            <h1 className="text-[#0C1B33] text-4xl sm:text-6xl font-medium leading-tight">
+              Borderless
+              <span className="inline-flex items-center gap-1.5 sm:gap-2 ml-2 sm:ml-0">
+                <span className="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
                   <Image
                     src="/flags/nigeria.png"
                     alt="Nigeria flag"
@@ -92,7 +95,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </span>
-                <span className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                <span className="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
                   <Image
                     src="/flags/usa.png"
                     alt="USA flag"
@@ -101,7 +104,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </span>
-                <span className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                <span className="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
                   <Image
                     src="/flags/uk.png"
                     alt="UK flag"
@@ -110,7 +113,7 @@ export default function Home() {
                     className="object-cover"
                   />
                 </span>
-                <span className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                <span className="hidden sm:inline-flex w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-100 items-center justify-center overflow-hidden">
                   <Image
                     src="/flags/south-africa.png"
                     alt="South Africa flag"
@@ -119,56 +122,73 @@ export default function Home() {
                     className="object-cover"
                   />
                 </span>
-                <span className="text-gray-500 text-lg font-normal">+150</span>
+                <span className="text-gray-500 text-base sm:text-lg font-normal">
+                  +150
+                </span>
               </span>
               Banking for African Professionals
             </h1>
-            <p className="text-gray-600 text-lg sm:text-xl max-w-xl">
+
+            <p className="text-gray-600 text-base sm:text-xl max-w-xl">
               Experience true borderless banking built for you to spend, send
               and receive payments in multiple currencies or stablecoins
               globally with lightening speed. Join our waitlist to be one of our
               early users.
             </p>
 
-            <div className="flex items-center gap-6 mt-4">
+            <div className="flex items-center gap-3 sm:gap-6">
               <button
                 onClick={() => scrollToSection("waitlist")}
-                className="from-[#917AFD] to-[#6246EA] bg-gradient-to-r text-white px-8 py-3 font-medium rounded-lg hover:opacity-90 transition-all"
+                className="from-[#917AFD] to-[#6246EA] bg-gradient-to-r text-white px-6 sm:px-8 py-2.5 sm:py-3 font-medium rounded-lg hover:opacity-90 transition-all text-sm sm:text-base"
               >
                 Join the waitlist
               </button>
               <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
+                <div className="flex -space-x-1.5 sm:-space-x-2">
                   <img
                     src="https://randomuser.me/api/portraits/men/1.jpg"
                     alt="User avatar"
-                    className="w-8 h-8 rounded-full border-2 border-white"
+                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white"
                   />
                   <img
                     src="https://randomuser.me/api/portraits/women/2.jpg"
                     alt="User avatar"
-                    className="w-8 h-8 rounded-full border-2 border-white"
+                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white"
                   />
                   <img
                     src="https://randomuser.me/api/portraits/men/3.jpg"
                     alt="User avatar"
-                    className="w-8 h-8 rounded-full border-2 border-white"
+                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white"
                   />
                 </div>
-                <span className="text-sm text-gray-600">
+                <span className="text-xs sm:text-sm text-gray-600">
                   Join 300+ professionals
                 </span>
               </div>
             </div>
 
+            {/* Image for mobile */}
+            <div className="block lg:hidden mt-8">
+              <Image
+                src="/assets/hero-img.svg"
+                alt="Bucx Banking Interface"
+                width={430}
+                height={430}
+                priority
+                className="object-contain w-full"
+              />
+            </div>
+
             {/* Powered by Section */}
-            <div className="mt-12">
-              <p className="text-sm text-gray-500 mb-2">Powered by:</p>
-              <img src="/solana.png" alt="Solana" className="h-4" />
+            <div className="mt-8 sm:mt-12 flex flex-col items-center sm:items-start">
+              <p className="text-base sm:text-sm text-gray-500 mb-2">
+                Powered by:
+              </p>
+              <img src="/solana.svg" alt="Solana" className="h-4 sm:h-4" />
             </div>
           </div>
 
-          {/* Right Column - Image */}
+          {/* Right Column - Image (desktop only) */}
           <div className="hidden lg:flex items-center gap-4 justify-center">
             <Image
               src="/assets/hero-img.png"
@@ -183,16 +203,20 @@ export default function Home() {
       </div>
 
       {/* Features Section */}
-      <div id="features" className="max-w-7xl mx-auto px-4 sm:px-6 py-20">
-        <h2 className="text-4xl sm:text-5xl font-medium text-center mb-16 text-[#0C1B33]">
+      <div
+        id="features"
+        className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20"
+      >
+        <h2 className="text-2xl sm:text-5xl font-medium text-center mb-8 sm:mb-16 text-[#0C1B33]">
           Everything to make your money
-          <br />
+          <br className="hidden sm:block" />
+          <span className="sm:hidden"> </span>
           lightening borderless
         </h2>
 
-        <div className="flex flex-col gap-12">
-          {/* Feature Navigation */}
-          <div className="flex justify-center mb-16">
+        <div className="flex flex-col gap-8 sm:gap-12">
+          {/* Hide the navigation tabs on mobile */}
+          <div className="hidden sm:flex justify-center mb-16">
             <div className="inline-flex bg-gray-100 p-1 rounded-xl">
               {["Global Accounts", "Cards", "P2P Payments", "Stablecoins"].map(
                 (text, index) => (
@@ -215,8 +239,73 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Feature Content */}
-          <div className="rounded-[32px] border border-gray-100 bg-white p-12 shadow-sm">
+          {/* Mobile Features List - Accordion Style */}
+          <div className="flex flex-col gap-4 sm:hidden">
+            {featuresContent.map((feature) => (
+              <div
+                key={feature.id}
+                className="bg-white rounded-2xl overflow-hidden border border-gray-100"
+              >
+                <button
+                  onClick={() =>
+                    setExpandedFeature(
+                      expandedFeature === feature.id ? null : feature.id
+                    )
+                  }
+                  className="w-full p-6 flex justify-between items-center text-left"
+                >
+                  <h3 className="text-xl font-medium text-[#0C1B33] pr-4">
+                    {feature.title}
+                  </h3>
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    className={`transform transition-transform ${
+                      expandedFeature === feature.id ? "rotate-180" : ""
+                    }`}
+                  >
+                    <path
+                      d="M6 9L12 15L18 9"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+
+                <div
+                  className={`transition-all duration-300 ease-in-out ${
+                    expandedFeature === feature.id
+                      ? "max-h-[1000px] opacity-100"
+                      : "max-h-0 opacity-0"
+                  } overflow-hidden`}
+                >
+                  <div className="px-6 pb-6 space-y-4">
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {feature.description}
+                    </p>
+                    <div className="relative rounded-xl overflow-hidden mt-4">
+                      <Image
+                        src={`/assets/features-${feature.id}.png`}
+                        alt={feature.title}
+                        width={526}
+                        height={420}
+                        className="object-cover w-full"
+                        quality={100}
+                        priority
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Feature Content */}
+          <div className="hidden sm:block rounded-[32px] border border-gray-100 bg-white p-12 shadow-sm">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <h3 className="text-5xl font-medium text-[#0C1B33] leading-tighter">
@@ -291,24 +380,24 @@ export default function Home() {
       {/* After Features Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 relative">
         {/* Left decorative image */}
-        <div className="absolute -left-20 top-20 w-[300px] h-[300px]">
+        <div className="hidden sm:block absolute -left-4 md:-left-12 lg:-left-20 top-20 w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px]">
           <Image
             src="/assets/star.png"
             alt="Decorative element"
             width={300}
             height={300}
-            className="object-contain"
+            className="object-contain w-full h-full"
           />
         </div>
 
         {/* Right decorative image */}
-        <div className="absolute -right-20 top-20 w-[300px] h-[300px]">
+        <div className="hidden sm:block absolute -right-4 md:-right-12 lg:-right-20 top-20 w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px]">
           <Image
             src="/assets/spring.png"
             alt="Decorative element"
             width={300}
             height={300}
-            className="object-contain"
+            className="object-contain w-full h-full"
           />
         </div>
 
@@ -341,48 +430,48 @@ export default function Home() {
       <div className="bg-gray-950">
         {/* Add the borderless banking text section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-32">
-          <div className="flex flex-col items-center">
-            <h2 className="text-white text-[120px] font-medium tracking-tight text-center leading-none">
+          <div className="flex flex-col items-start">
+            <h2 className="text-white text-[40px] sm:text-[120px] font-medium tracking-tight text-left leading-none">
               BORDERLESS BANKING
               <br />
               BUILT FOR YOU{" "}
-              <div className="inline-flex flex-wrap items-center justify-center gap-1 mt-4">
+              <div className="inline-flex flex-wrap items-start justify-start gap-1 mt-4">
                 {/* First row */}
                 <div className="flex gap-1">
                   <Image
                     src="/flags/canada.png"
                     alt="Canada"
-                    width={24}
-                    height={24}
-                    className="rounded-full"
+                    width={16}
+                    height={16}
+                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
                   />
                   <Image
                     src="/flags/nigeria.png"
                     alt="Nigeria"
-                    width={24}
-                    height={24}
-                    className="rounded-full"
+                    width={16}
+                    height={16}
+                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
                   />
                   <Image
                     src="/flags/usa.png"
                     alt="USA"
-                    width={24}
-                    height={24}
-                    className="rounded-full"
+                    width={16}
+                    height={16}
+                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
                   />
                   <Image
                     src="/flags/uk.png"
                     alt="UK"
-                    width={24}
-                    height={24}
-                    className="rounded-full"
+                    width={16}
+                    height={16}
+                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
                   />
                   <Image
                     src="/flags/south-africa.png"
                     alt="South Africa"
-                    width={24}
-                    height={24}
-                    className="rounded-full"
+                    width={16}
+                    height={16}
+                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
                   />
                 </div>
                 {/* Second row */}
@@ -390,40 +479,40 @@ export default function Home() {
                   <Image
                     src="/flags/canada.png"
                     alt="Canada"
-                    width={24}
-                    height={24}
-                    className="rounded-full"
+                    width={16}
+                    height={16}
+                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
                   />
                   <Image
                     src="/flags/nigeria.png"
                     alt="Nigeria"
-                    width={24}
-                    height={24}
-                    className="rounded-full"
+                    width={16}
+                    height={16}
+                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
                   />
                   <Image
                     src="/flags/usa.png"
                     alt="USA"
-                    width={24}
-                    height={24}
-                    className="rounded-full"
+                    width={16}
+                    height={16}
+                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
                   />
                   <Image
                     src="/flags/uk.png"
                     alt="UK"
-                    width={24}
-                    height={24}
-                    className="rounded-full"
+                    width={16}
+                    height={16}
+                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
                   />
                   <Image
                     src="/flags/south-africa.png"
                     alt="South Africa"
-                    width={24}
-                    height={24}
-                    className="rounded-full"
+                    width={16}
+                    height={16}
+                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
                   />
                 </div>
-                <span className="text-gray-400 text-xl tracking-tight">
+                <span className="text-gray-400 text-sm sm:text-xl tracking-tight">
                   +120
                 </span>
               </div>
@@ -433,10 +522,12 @@ export default function Home() {
 
         {/* Footer content */}
         <div className="border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-              <div className="text-white text-2xl font-medium">Bucx</div>
-              <div className="text-gray-400 text-sm">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-8">
+              <div className="text-white text-xl sm:text-2xl font-medium">
+                bucx.
+              </div>
+              <div className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
                 © {new Date().getFullYear()}, Bucx • All Rights Reserved
               </div>
               <a
@@ -446,14 +537,15 @@ export default function Home() {
                 className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors"
               >
                 <svg
-                  width="24"
-                  height="24"
+                  width="20"
+                  height="20"
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="sm:w-6 sm:h-6"
                 >
                   <path
-                    d="M22 4.01C21 4.5 20.02 4.69 19 4.82C20.07 4.19 20.76 3.13 21.09 1.92C20.13 2.52 19.05 2.98 17.92 3.22C16.89 2.16 15.42 1.5 13.83 1.5C10.76 1.5 8.26 4 8.26 7.07C8.26 7.52 8.31 7.96 8.41 8.37C4.69 8.14 1.39 5.91 -0.16 2.67C-0.66 3.53 -0.92 4.52 -0.92 5.58C-0.92 7.58 0.08 9.33 1.58 10.33C0.66 10.3 -0.22 10.04 -1 9.61V9.69C-1 12.39 0.94 14.67 3.44 15.19C2.95 15.32 2.44 15.39 1.91 15.39C1.54 15.39 1.17 15.36 0.82 15.3C1.56 17.54 3.66 19.17 6.13 19.21C4.19 20.72 1.77 21.61 -0.84 21.61C-1.37 21.61 -1.89 21.58 -2.4 21.53C0.11 23.14 3.07 24.07 6.27 24.07C13.83 24.07 17.96 17.46 17.96 11.79C17.96 11.54 17.95 11.3 17.94 11.06C18.92 10.33 19.76 9.41 20.4 8.35L22 4.01Z"
+                    d="M14.2833 10.1571L21.9499 1H20.2103L13.5309 9.02542L8.20627 1H1.63647L9.67493 13.3264L1.63647 23H3.37613L10.4274 14.458L16.0503 23H22.6201L14.2822 10.1571H14.2833ZM11.3073 13.4361L10.4798 12.2372L4.04047 2.63873H7.19767L12.4219 10.4148L13.2494 11.6137L20.0199 21.7411H16.8627L11.3073 13.4372V13.4361Z"
                     fill="white"
                   />
                 </svg>
