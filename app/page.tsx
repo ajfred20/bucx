@@ -191,7 +191,7 @@ export default function Home() {
           {/* Right Column - Image (desktop only) */}
           <div className="hidden lg:flex items-center gap-4 justify-center">
             <Image
-              src="/assets/hero-img.png"
+              src="/assets/hero-img.svg"
               alt="Bucx Banking Interface"
               width={430}
               height={430}
@@ -203,174 +203,176 @@ export default function Home() {
       </div>
 
       {/* Features Section */}
-      <div
-        id="features"
-        className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20"
-      >
-        <h2 className="text-2xl sm:text-5xl font-medium text-center mb-8 sm:mb-16 text-[#0C1B33]">
-          Everything to make your money
-          <br className="hidden sm:block" />
-          <span className="sm:hidden"> </span>
-          lightening borderless
-        </h2>
+      <div className="bg-gray-100">
+        <div
+          id="features"
+          className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20"
+        >
+          <h2 className="text-2xl sm:text-5xl font-medium text-center mb-8 sm:mb-16 text-[#0C1B33]">
+            Everything to make your money
+            <br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
+            lightening borderless
+          </h2>
 
-        <div className="flex flex-col gap-8 sm:gap-12">
-          {/* Hide the navigation tabs on mobile */}
-          <div className="hidden sm:flex justify-center mb-16">
-            <div className="inline-flex bg-gray-100 p-1 rounded-xl">
-              {["Global Accounts", "Cards", "P2P Payments", "Stablecoins"].map(
-                (text, index) => (
-                  <button
-                    key={featuresContent[index].id}
-                    onClick={() => {
-                      setActiveFeature(featuresContent[index].id);
-                      setCurrentIndex(index);
-                    }}
-                    className={`px-8 py-2.5 rounded-lg transition-all text-sm ${
-                      activeFeature === featuresContent[index].id
-                        ? "bg-[#0C1B33] text-white"
-                        : "text-gray-600 hover:text-gray-900"
-                    }`}
-                  >
-                    {text}
-                  </button>
-                )
-              )}
+          <div className="flex flex-col gap-8 sm:gap-12">
+            {/* Hide the navigation tabs on mobile */}
+            <div className="hidden sm:flex justify-center mb-16">
+              <div className="inline-flex bg-white p-1 rounded-xl">
+                {["Global Accounts", "Cards", "P2P Payments", "Stablecoins"].map(
+                  (text, index) => (
+                    <button
+                      key={featuresContent[index].id}
+                      onClick={() => {
+                        setActiveFeature(featuresContent[index].id);
+                        setCurrentIndex(index);
+                      }}
+                      className={`px-8 py-2.5 rounded-lg transition-all text-sm ${
+                        activeFeature === featuresContent[index].id
+                          ? "bg-[#0C1B33] text-white"
+                          : "text-gray-600 hover:text-gray-900"
+                      }`}
+                    >
+                      {text}
+                    </button>
+                  )
+                )}
+              </div>
             </div>
-          </div>
 
-          {/* Mobile Features List - Accordion Style */}
-          <div className="flex flex-col gap-4 sm:hidden">
-            {featuresContent.map((feature) => (
-              <div
-                key={feature.id}
-                className="bg-white rounded-2xl overflow-hidden border border-gray-100"
-              >
-                <button
-                  onClick={() =>
-                    setExpandedFeature(
-                      expandedFeature === feature.id ? null : feature.id
-                    )
-                  }
-                  className="w-full p-6 flex justify-between items-center text-left"
-                >
-                  <h3 className="text-xl font-medium text-[#0C1B33] pr-4">
-                    {feature.title}
-                  </h3>
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className={`transform transition-transform ${
-                      expandedFeature === feature.id ? "rotate-180" : ""
-                    }`}
-                  >
-                    <path
-                      d="M6 9L12 15L18 9"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
-
+            {/* Mobile Features List - Accordion Style */}
+            <div className="flex flex-col gap-4 sm:hidden">
+              {featuresContent.map((feature) => (
                 <div
-                  className={`transition-all duration-300 ease-in-out ${
-                    expandedFeature === feature.id
-                      ? "max-h-[1000px] opacity-100"
-                      : "max-h-0 opacity-0"
-                  } overflow-hidden`}
+                  key={feature.id}
+                  className="bg-white rounded-2xl overflow-hidden border border-gray-100"
                 >
-                  <div className="px-6 pb-6 space-y-4">
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-                    <div className="relative rounded-xl overflow-hidden mt-4">
-                      <Image
-                        src={`/assets/features-${feature.id}.png`}
-                        alt={feature.title}
-                        width={526}
-                        height={420}
-                        className="object-cover w-full"
-                        quality={100}
-                        priority
+                  <button
+                    onClick={() =>
+                      setExpandedFeature(
+                        expandedFeature === feature.id ? null : feature.id
+                      )
+                    }
+                    className="w-full p-6 flex justify-between items-center text-left"
+                  >
+                    <h3 className="text-xl font-medium text-[#0C1B33] pr-4">
+                      {feature.title}
+                    </h3>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      className={`transform transition-transform ${
+                        expandedFeature === feature.id ? "rotate-180" : ""
+                      }`}
+                    >
+                      <path
+                        d="M6 9L12 15L18 9"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
+                    </svg>
+                  </button>
+
+                  <div
+                    className={`transition-all duration-300 ease-in-out ${
+                      expandedFeature === feature.id
+                        ? "max-h-[1000px] opacity-100"
+                        : "max-h-0 opacity-0"
+                    } overflow-hidden`}
+                  >
+                    <div className="px-6 pb-6 space-y-4">
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {feature.description}
+                      </p>
+                      <div className="relative rounded-xl overflow-hidden mt-4">
+                        <Image
+                          src={`/assets/features-${feature.id}.png`}
+                          alt={feature.title}
+                          width={526}
+                          height={420}
+                          className="object-cover w-full"
+                          quality={100}
+                          priority
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          {/* Desktop Feature Content */}
-          <div className="hidden sm:block rounded-[32px] border border-gray-100 bg-white p-12 shadow-sm">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h3 className="text-5xl font-medium text-[#0C1B33] leading-tighter">
-                  {featuresContent[currentIndex].title}
-                </h3>
-                <p className="text-gray-600 text-xl tracking-tight">
-                  {featuresContent[currentIndex].description}
-                </p>
+            {/* Desktop Feature Content */}
+            <div className="hidden sm:block rounded-[32px] border border-gray-100 bg-white p-12 shadow-sm">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="space-y-6">
+                  <h3 className="text-5xl font-medium text-[#0C1B33] leading-tighter">
+                    {featuresContent[currentIndex].title}
+                  </h3>
+                  <p className="text-gray-600 text-xl tracking-tight">
+                    {featuresContent[currentIndex].description}
+                  </p>
 
-                {/* Navigation Arrows */}
-                <div className="flex items-center gap-4 pt-8">
-                  <button
-                    onClick={() => {
-                      setCurrentIndex(
-                        (prev) =>
-                          (prev - 1 + featuresContent.length) %
-                          featuresContent.length
-                      );
-                      setActiveFeature(
-                        featuresContent[
-                          (currentIndex - 1 + featuresContent.length) %
+                  {/* Navigation Arrows */}
+                  <div className="flex items-center gap-4 pt-8">
+                    <button
+                      onClick={() => {
+                        setCurrentIndex(
+                          (prev) =>
+                            (prev - 1 + featuresContent.length) %
                             featuresContent.length
-                        ].id
-                      );
-                    }}
-                    className="p-2 rounded-full border border-gray-200 hover:bg-gray-50"
-                  >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M15 18L9 12L15 6"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
-                  <button
-                    onClick={handleNext}
-                    className="p-2 rounded-full border border-gray-200 hover:bg-gray-50"
-                  >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path
-                        d="M9 6L15 12L9 18"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </button>
+                        );
+                        setActiveFeature(
+                          featuresContent[
+                            (currentIndex - 1 + featuresContent.length) %
+                              featuresContent.length
+                          ].id
+                        );
+                      }}
+                      className="p-2 rounded-full border border-gray-200 hover:bg-gray-50"
+                    >
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M15 18L9 12L15 6"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={handleNext}
+                      className="p-2 rounded-full border border-gray-200 hover:bg-gray-50"
+                    >
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path
+                          d="M9 6L15 12L9 18"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
-              </div>
 
-              {/* Feature Image */}
-              <div className="relative rounded-2xl overflow-hidden h-[420px]">
-                <Image
-                  src={`/assets/features-${activeFeature}.png`}
-                  alt={featuresContent[currentIndex].title}
-                  width={526}
-                  height={420}
-                  className="object-contain rounded-xl"
-                  quality={100}
-                  priority
-                />
+                {/* Feature Image */}
+                <div className="relative rounded-2xl overflow-hidden h-[420px]">
+                  <Image
+                    src={`/assets/features-${activeFeature}.png`}
+                    alt={featuresContent[currentIndex].title}
+                    width={526}
+                    height={420}
+                    className="object-contain rounded-xl"
+                    quality={100}
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -406,7 +408,7 @@ export default function Home() {
           <h2 className="text-4xl sm:text-5xl font-medium text-[#0C1B33] mb-6 tracking-tightd b">
             The world has borders but your finances shouldn&apos;t
           </h2>
-          <p className="text-gray-600 text-lg mb-12 tracking-tight">
+          <p className="text-gray-600 text-xl mb-12 tracking-tight">
             Your money should be where you want when you want it. Make your
             life, borderless. Make your money borderless. With Bucx the
             possibilities are endless.
@@ -431,7 +433,7 @@ export default function Home() {
         {/* Add the borderless banking text section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-32">
           <div className="flex flex-col items-start">
-            <h2 className="text-white text-[40px] sm:text-[120px] font-medium tracking-tight text-left leading-none">
+            <h2 className="text-white text-[40px] sm:text-[120px] font-semibold tracking-tight text-left leading-none">
               BORDERLESS BANKING
               <br />
               BUILT FOR YOU{" "}
