@@ -59,7 +59,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto">
-        <nav className="flex items-center justify-between px-4 sm:px-6 py-6">
+        <nav className="flex items-center justify-between px-4 sm:px-6 py-6 md:py-8 lg:py-10 border-b sm:border-b-0 border-gray-200 mb-8 md:mb-12 lg:mb-16">
           <div className="font-semibold text-3xl sm:text-4xl tracking-tight text-[#0C1B33]">
             bucx.
           </div>
@@ -80,7 +80,7 @@ export default function Home() {
         </nav>
 
         {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 sm:px-6 pt-20 pb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 px-4 sm:px-6 pt-12 pb-16">
           {/* Left Column - Text Content */}
           <div className="flex flex-col gap-4 sm:gap-6">
             <h1 className="text-[#0C1B33] text-4xl sm:text-6xl font-medium leading-tight">
@@ -218,7 +218,7 @@ export default function Home() {
           <div className="flex flex-col gap-8 sm:gap-12">
             {/* Hide the navigation tabs on mobile */}
             <div className="hidden sm:flex justify-center mb-16">
-              <div className="inline-flex bg-white p-1 rounded-xl">
+              <div className="inline-flex bg-white p-1.5 rounded-xl">
                 {["Global Accounts", "Cards", "P2P Payments", "Stablecoins"].map(
                   (text, index) => (
                     <button
@@ -227,7 +227,7 @@ export default function Home() {
                         setActiveFeature(featuresContent[index].id);
                         setCurrentIndex(index);
                       }}
-                      className={`px-8 py-2.5 rounded-lg transition-all text-sm ${
+                      className={`px-10 py-3 rounded-lg transition-all text-base ${
                         activeFeature === featuresContent[index].id
                           ? "bg-[#0C1B33] text-white"
                           : "text-gray-600 hover:text-gray-900"
@@ -431,9 +431,9 @@ export default function Home() {
       {/* Footer */}
       <div className="bg-gray-950">
         {/* Add the borderless banking text section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
           <div className="flex flex-col items-start">
-            <h2 className="text-white text-[40px] sm:text-[120px] font-semibold tracking-tight text-left leading-none">
+            <h2 className="text-white text-[60px] sm:text-[100px] font-semibold tracking-tight text-left leading-none">
               BORDERLESS BANKING
               <br />
               BUILT FOR YOU{" "}
@@ -524,7 +524,7 @@ export default function Home() {
 
         {/* Footer content */}
         <div className="border-t border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6">
             <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-8">
               <div className="text-white text-xl sm:text-2xl font-medium">
                 bucx.
