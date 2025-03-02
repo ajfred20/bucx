@@ -15,8 +15,8 @@ const featuresContent = [
     active: true,
   },
   {
-    id: "cards",
-    title: "Spend your money online and physically anywhere in the world", 
+    id: "cards", 
+    title: "Spend your money online and physically anywhere in the world",
     description:
       "Get a virtual or physical card to make payments online and in-store at 130M+ merchants globally. Travellers can make payments anywhere without having to off-ramp to the local currency of their destination country.",
     active: false,
@@ -188,19 +188,25 @@ export default function Home() {
               </button>
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-1.5 sm:-space-x-2">
-                  <img
+                  <Image
                     src="https://randomuser.me/api/portraits/men/1.jpg"
                     alt="User avatar"
+                    width={32}
+                    height={32}
                     className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white"
                   />
-                  <img
+                  <Image
                     src="https://randomuser.me/api/portraits/women/2.jpg"
                     alt="User avatar"
+                    width={32}
+                    height={32}
                     className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white"
                   />
-                  <img
+                  <Image
                     src="https://randomuser.me/api/portraits/men/3.jpg"
                     alt="User avatar"
+                    width={32}
+                    height={32}
                     className="w-6 h-6 sm:w-8 sm:h-8 rounded-full border-2 border-white"
                   />
                 </div>
@@ -227,7 +233,13 @@ export default function Home() {
               <p className="text-base sm:text-sm text-gray-500 mb-2">
                 Powered by:
               </p>
-              <img src="/solana.svg" alt="Solana" className="h-4 sm:h-4" />
+              <Image 
+                src="/solana.svg" 
+                alt="Solana" 
+                width={100}
+                height={16}
+                className="h-4 sm:h-4" 
+              />
             </div>
           </div>
 
@@ -333,7 +345,7 @@ export default function Home() {
                       </p>
                       <div className="relative rounded-xl overflow-hidden mt-4">
                         <Image
-                          src={`/assets/features-${feature.id}.png`}
+                          src={`/assets/features-${feature.id}.svg`}
                           alt={feature.title}
                           width={526}
                           height={420}
@@ -377,7 +389,12 @@ export default function Home() {
                       }}
                       className="p-2 rounded-full border border-gray-200 hover:bg-gray-50"
                     >
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
                         <path
                           d="M15 18L9 12L15 6"
                           stroke="currentColor"
@@ -391,7 +408,12 @@ export default function Home() {
                       onClick={handleNext}
                       className="p-2 rounded-full border border-gray-200 hover:bg-gray-50"
                     >
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
                         <path
                           d="M9 6L15 12L9 18"
                           stroke="currentColor"
@@ -407,7 +429,7 @@ export default function Home() {
                 {/* Feature Image */}
                 <div className="relative rounded-2xl overflow-hidden h-[420px]">
                   <Image
-                    src={`/assets/features-${activeFeature}.png`}
+                    src={`/assets/features-${activeFeature}.svg`}
                     alt={featuresContent[currentIndex].title}
                     width={526}
                     height={420}
