@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
 
 // Add this content data outside the component
 const featuresContent = [
@@ -14,7 +16,7 @@ const featuresContent = [
   },
   {
     id: "cards",
-    title: "Spend your money online and physically anywhere in the world",
+    title: "Spend your money online and physically anywhere in the world", 
     description:
       "Get a virtual or physical card to make payments online and in-store at 130M+ merchants globally. Travellers can make payments anywhere without having to off-ramp to the local currency of their destination country.",
     active: false,
@@ -41,6 +43,8 @@ export default function Home() {
   const [expandedFeature, setExpandedFeature] = useState<string | null>(
     "global-accounts"
   );
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % featuresContent.length);
@@ -56,8 +60,47 @@ export default function Home() {
     }
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const templateParams = {
+        email: email,
+        signup_date: new Date().toLocaleDateString()
+      };
+
+      await emailjs.send(
+        'service_j908tze',
+        'template_u6m4e27',
+        templateParams,
+        'HbX6ZNCkLiZ5heY1K'
+      );
+      
+      toast.success(
+        'Thanks for signing up!',
+        {
+          duration: 5000,
+          position: 'top-center',
+          style: {
+            background: '#0C1B33',
+            color: '#fff',
+          },
+        }
+      );
+      
+      setEmail('');
+    } catch (error: any) {
+      console.error('Error:', error);
+      toast.error(error?.message || 'Failed to join waitlist. Please try again.');
+    }
+
+    setLoading(false);
+  };
+
   return (
     <div className="min-h-screen bg-white">
+      <Toaster />
       <div className="max-w-7xl mx-auto">
         <nav className="flex items-center justify-between px-4 sm:px-6 py-6 md:py-8 lg:py-10 border-b sm:border-b-0 border-gray-200 mb-8 md:mb-12 lg:mb-16">
           <div className="font-semibold text-3xl sm:text-4xl tracking-tight text-[#0C1B33]">
@@ -415,16 +458,23 @@ export default function Home() {
           </p>
 
           {/* Email input and button */}
-          <div className="max-w-md mx-auto space-y-4">
+          <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email address"
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full px-4 py-3 rounded-lg border text-gray-700 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              required
             />
-            <button className="w-full from-[#917AFD] to-[#6246EA] bg-gradient-to-r text-white px-8 py-3 font-medium rounded-lg hover:opacity-90 transition-all">
-              Join the waitlist
+            <button 
+              type="submit"
+              disabled={loading}
+              className="w-full from-[#917AFD] to-[#6246EA] bg-gradient-to-r text-white px-8 py-3 font-medium rounded-lg hover:opacity-90 transition-all disabled:opacity-50"
+            >
+              {loading ? 'Joining...' : 'Join the waitlist'}
             </button>
-          </div>
+          </form>
         </div>
       </div>
 
@@ -432,92 +482,11 @@ export default function Home() {
       <div className="bg-gray-950">
         {/* Add the borderless banking text section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
-          <div className="flex flex-col items-start">
-            <h2 className="text-white text-[60px] sm:text-[100px] font-semibold tracking-tight text-left leading-none">
+          <div className="flex flex-col items-center">
+            <h2 className="text-white text-[60px] sm:text-[100px] font-semibold tracking-tight text-center leading-none">
               BORDERLESS BANKING
               <br />
-              BUILT FOR YOU{" "}
-              <div className="inline-flex flex-wrap items-start justify-start gap-1 mt-4">
-                {/* First row */}
-                <div className="flex gap-1">
-                  <Image
-                    src="/flags/canada.png"
-                    alt="Canada"
-                    width={16}
-                    height={16}
-                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
-                  />
-                  <Image
-                    src="/flags/nigeria.png"
-                    alt="Nigeria"
-                    width={16}
-                    height={16}
-                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
-                  />
-                  <Image
-                    src="/flags/usa.png"
-                    alt="USA"
-                    width={16}
-                    height={16}
-                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
-                  />
-                  <Image
-                    src="/flags/uk.png"
-                    alt="UK"
-                    width={16}
-                    height={16}
-                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
-                  />
-                  <Image
-                    src="/flags/south-africa.png"
-                    alt="South Africa"
-                    width={16}
-                    height={16}
-                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
-                  />
-                </div>
-                {/* Second row */}
-                <div className="flex gap-1">
-                  <Image
-                    src="/flags/canada.png"
-                    alt="Canada"
-                    width={16}
-                    height={16}
-                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
-                  />
-                  <Image
-                    src="/flags/nigeria.png"
-                    alt="Nigeria"
-                    width={16}
-                    height={16}
-                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
-                  />
-                  <Image
-                    src="/flags/usa.png"
-                    alt="USA"
-                    width={16}
-                    height={16}
-                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
-                  />
-                  <Image
-                    src="/flags/uk.png"
-                    alt="UK"
-                    width={16}
-                    height={16}
-                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
-                  />
-                  <Image
-                    src="/flags/south-africa.png"
-                    alt="South Africa"
-                    width={16}
-                    height={16}
-                    className="rounded-full sm:w-6 sm:h-6 w-4 h-4"
-                  />
-                </div>
-                <span className="text-gray-400 text-sm sm:text-xl tracking-tight">
-                  +120
-                </span>
-              </div>
+              BUILT FOR YOU
             </h2>
           </div>
         </div>
