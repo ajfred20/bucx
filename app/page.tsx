@@ -63,13 +63,13 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-
+  
     try {
       const templateParams = {
         email: email,
-        signup_date: new Date().toLocaleDateString()
+        signup_date: new Date().toLocaleDateString(),
       };
-
+  
       await emailjs.send(
         'service_j908tze',
         'template_u6m4e27',
@@ -77,26 +77,30 @@ export default function Home() {
         'HbX6ZNCkLiZ5heY1K'
       );
       
-      toast.success(
-        'Thanks for signing up!',
-        {
-          duration: 5000,
-          position: 'top-center',
-          style: {
-            background: '#0C1B33',
-            color: '#fff',
-          },
-        }
-      );
+      toast.success('Thanks for signing up!', {
+        duration: 5000,
+        position: 'top-center',
+        style: {
+          background: '#0C1B33',
+          color: '#fff',
+        },
+      });
       
       setEmail('');
-    } catch (error: any) {
+    } catch (error: unknown) {
+      let errorMessage = 'Failed to join waitlist. Please try again.';
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else {
+        errorMessage = String(error);
+      }
       console.error('Error:', error);
-      toast.error(error?.message || 'Failed to join waitlist. Please try again.');
+      toast.error(errorMessage);
     }
-
+  
     setLoading(false);
   };
+  
 
   return (
     <div className="min-h-screen bg-white">
