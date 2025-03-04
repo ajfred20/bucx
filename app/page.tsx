@@ -457,9 +457,9 @@ export default function Home() {
           />
         </div>
 
-        {/* Right decorative image */}
+        {/* Right decorative ing */}
         <div className="hidden sm:block absolute -right-4 md:-right-12 lg:-right-20 top-20 w-[150px] h-[150px] sm:w-[200px] sm:h-[200px] md:w-[250px] md:h-[250px] lg:w-[300px] lg:h-[300px]">
-          <Image
+          <img
             src="/assets/spring.png"
             alt="Decorative element"
             width={300}
