@@ -355,7 +355,6 @@ export default function Home() {
                           height={420}
                           className="object-cover w-full"
                           quality={100}
-                          unoptimized
                           priority
                         />
                       </div>
@@ -439,8 +438,6 @@ export default function Home() {
                     width={526}
                     height={420}
                     className="object-contain rounded-xl"
-                    quality={100}
-                    unoptimized
                     priority
                   />
                 </div>
