@@ -37,6 +37,9 @@ const featuresContent = [
   },
 ];
 
+// Add this near the top of your file
+const fallbackImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+
 export default function Home() {
   const [activeFeature, setActiveFeature] = useState("global-accounts");
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -252,7 +255,7 @@ export default function Home() {
                 onError={(e) => {
                   console.error('Failed to load image:', e);
                   const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
+                  target.src = fallbackImage;
                 }}
               />
             </div>
@@ -289,7 +292,7 @@ export default function Home() {
               onError={(e) => {
                 console.error('Failed to load image:', e);
                 const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
+                target.src = fallbackImage;
               }}
             />
           </div>
@@ -482,7 +485,7 @@ export default function Home() {
                     onError={(e) => {
                       console.error('Failed to load feature image:', activeFeature, e);
                       const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
+                      target.src = fallbackImage;
                     }}
                   />
                 </div>
