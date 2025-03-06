@@ -223,7 +223,7 @@ export default function Home() {
             {/* Image for mobile */}
             <div className="block lg:hidden mt-8">
               <Image
-                src="/assets/hero-img.svg"
+                src="/assets/hero-img.png"
                 alt="Bucx Banking Interface"
                 width={430}
                 height={430}
@@ -238,7 +238,7 @@ export default function Home() {
                 Powered by:
               </p>
               <Image 
-                src="/solana.svg" 
+                src="/solana.png" 
                 alt="Solana" 
                 width={100}
                 height={16}
@@ -250,7 +250,7 @@ export default function Home() {
           {/* Right Column - Image (desktop only) */}
           <div className="hidden lg:flex items-center gap-4 justify-center">
             <Image
-              src="/assets/hero-img.svg"
+              src="/assets/hero-img.png"
               alt="Bucx Banking Interface"
               width={430}
               height={430}
@@ -349,7 +349,7 @@ export default function Home() {
                       </p>
                       <div className="relative rounded-xl overflow-hidden mt-4">
                         <Image
-                          src={`/assets/features-${feature.id}.svg`}
+                          src={`/assets/features-${feature.id}.png`}
                           alt={feature.title}
                           width={526}
                           height={420}
@@ -433,7 +433,7 @@ export default function Home() {
                 {/* Feature Image */}
                 <div className="relative rounded-2xl overflow-hidden h-[420px]">
                   <Image
-                    src={`/assets/features-${activeFeature}.svg`}
+                    src={`/assets/features-${activeFeature}.png`}
                     alt={featuresContent[currentIndex].title}
                     width={526}
                     height={420}
