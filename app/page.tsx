@@ -352,7 +352,7 @@ export default function Home() {
                     }
                     className="w-full p-6 flex justify-between items-center text-left"
                   >
-                    <h3 className="text-xl font-medium text-[#0C1B33] pr-4">
+                    <h3 className="text-2xl font-medium text-[#0C1B33] pr-4">
                       {feature.title}
                     </h3>
                     <svg
@@ -382,7 +382,7 @@ export default function Home() {
                     } overflow-hidden`}
                   >
                     <div className="px-6 pb-6 space-y-4">
-                      <p className="text-gray-600 text-sm leading-relaxed">
+                      <p className="text-gray-600 text-xl leading-relaxed">
                         {feature.description}
                       </p>
                       <div className="relative rounded-xl overflow-hidden mt-4">
