@@ -140,6 +140,11 @@ export default function Home() {
                     width={75}
                     height={75}
                     className="object-cover"
+                    onError={(e) => {
+                      console.error('Failed to load flag:', e);
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
                   />
                 </span>
                 <span className="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
@@ -149,6 +154,11 @@ export default function Home() {
                     width={75}
                     height={75}
                     className="object-cover"
+                    onError={(e) => {
+                      console.error('Failed to load flag:', e);
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
                   />
                 </span>
                 <span className="w-5 h-5 sm:w-8 sm:h-8 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
@@ -158,6 +168,11 @@ export default function Home() {
                     width={75}
                     height={75}
                     className="object-cover"
+                    onError={(e) => {
+                      console.error('Failed to load flag:', e);
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
                   />
                 </span>
                 <span className="hidden sm:inline-flex w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-gray-100 items-center justify-center overflow-hidden">
@@ -167,6 +182,11 @@ export default function Home() {
                     width={75}
                     height={75}
                     className="object-cover"
+                    onError={(e) => {
+                      console.error('Failed to load flag:', e);
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
                   />
                 </span>
                 <span className="text-gray-500 text-base sm:text-lg font-normal">
@@ -229,6 +249,11 @@ export default function Home() {
                 height={430}
                 priority
                 className="object-contain w-full"
+                onError={(e) => {
+                  console.error('Failed to load image:', e);
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
               />
             </div>
 
@@ -242,7 +267,12 @@ export default function Home() {
                 alt="Solana" 
                 width={100}
                 height={16}
-                className="h-4 sm:h-4" 
+                className="h-4 sm:h-4"
+                onError={(e) => {
+                  console.error('Failed to load Solana logo:', e);
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                }}
               />
             </div>
           </div>
@@ -256,6 +286,11 @@ export default function Home() {
               height={430}
               priority
               className="object-contain"
+              onError={(e) => {
+                console.error('Failed to load image:', e);
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+              }}
             />
           </div>
         </div>
@@ -356,6 +391,11 @@ export default function Home() {
                           className="object-cover w-full"
                           quality={100}
                           priority
+                          onError={(e) => {
+                            console.error('Failed to load feature image:', feature.id, e);
+                            const target = e.target as HTMLImageElement;
+                            target.style.display = 'none';
+                          }}
                         />
                       </div>
                     </div>
@@ -439,6 +479,11 @@ export default function Home() {
                     height={420}
                     className="object-contain rounded-xl"
                     priority
+                    onError={(e) => {
+                      console.error('Failed to load feature image:', activeFeature, e);
+                      const target = e.target as HTMLImageElement;
+                      target.style.display = 'none';
+                    }}
                   />
                 </div>
               </div>
