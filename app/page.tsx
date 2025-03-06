@@ -382,7 +382,7 @@ export default function Home() {
                     } overflow-hidden`}
                   >
                     <div className="px-6 pb-6 space-y-4">
-                      <p className="text-gray-600 text-xl leading-relaxed">
+                      <p className="text-gray-600 text-lg leading-relaxed">
                         {feature.description}
                       </p>
                       <div className="relative rounded-xl overflow-hidden mt-4">
