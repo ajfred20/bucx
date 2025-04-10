@@ -573,6 +573,8 @@ export default function Home() {
               </div>
               <div className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
                 © {new Date().getFullYear()}, Bucx • All Rights Reserved
+<br/>
+Bucx is a financial technology company, not a bank. All banking services are provided by our licensed banking partners.
               </div>
               <a
                 href="https://twitter.com/bucxhq"
