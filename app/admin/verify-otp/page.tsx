@@ -35,7 +35,7 @@ const OtpPage = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <Toaster position="top-center" />
       <div className="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
-        <h1 className="text-3xl font-semibold tracking-tight text-center mb-2">
+        <h1 className="text-4xl text-black font-semibold tracking-tight text-center mb-2">
           Verify Identity
         </h1>
         <p className="text-gray-600 text-center font-normal text-sm tracking-tight mb-8">
@@ -53,7 +53,7 @@ const OtpPage = () => {
                       id={`otp-${index}`}
                       type="text"
                       maxLength={1}
-                      className="w-12 h-12 text-center border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-xl"
+                      className="w-12 h-12 text-center border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-xl"
                       value={digit}
                       onChange={(e) => handleChange(index, e.target.value)}
                       inputMode="numeric"
@@ -65,7 +65,7 @@ const OtpPage = () => {
                     id={`otp-${index}`}
                     type="text"
                     maxLength={1}
-                    className="w-12 h-12 text-center border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-xl"
+                    className="w-12 h-12 text-center border border-gray-300 text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-xl"
                     value={digit}
                     onChange={(e) => handleChange(index, e.target.value)}
                     inputMode="numeric"
@@ -78,7 +78,7 @@ const OtpPage = () => {
 
           <button
             type="submit"
-            className="w-full bg-black text-white text-base tracking-tight py-3 rounded-md hover:bg-gray-800 transition-colors"
+            className="w-full mt-8 bg-black text-white text-base tracking-tight py-3 rounded-md hover:bg-gray-800 transition-colors"
           >
             Verify
           </button>
