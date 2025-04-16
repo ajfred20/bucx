@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import emailjs from '@emailjs/browser';
-import toast, { Toaster } from 'react-hot-toast';
+import emailjs from "@emailjs/browser";
+import toast, { Toaster } from "react-hot-toast";
 
 // Add this content data outside the component
 const featuresContent = [
@@ -11,11 +11,11 @@ const featuresContent = [
     id: "global-accounts",
     title: "Global accounts to send and receive payments",
     description:
-      "You can open a global account in minutes to send and receive payments anytime and anywhere. Professionals can use their US account to receive payment in ACH or WIRE from platforms like Upwork, Fiverr, YouTube, Deel, etc or Euro accounts to receive payments. You can also send money directly into US and Euro accounts with your local currency without hassle.",
+      "You can open a US account in minutes to send and receive payments anytime and anywhere. Professionals can use their US account to receive payment in ACH or WIRE from platforms like Upwork, Fiverr, YouTube, Deel, etc. You can also send money directly into US accounts with your local currency without hassle.",
     active: true,
   },
   {
-    id: "cards", 
+    id: "cards",
     title: "Spend your money online and physically anywhere in the world",
     description:
       "Get a virtual or physical card to make payments online and in-store at 130M+ merchants globally. Travellers can make payments anywhere without having to off-ramp to the local currency of their destination country.",
@@ -32,13 +32,14 @@ const featuresContent = [
     id: "stablecoins",
     title: "Experience the full power of Solana blockchain payments",
     description:
-      "You get a Solana wallet when they sign up on Bucx making it possible to transact with stablecoins. All funds are held in stablecoins. You can accept USD/Euro payments, with this payment settled in stablecoins and also make payments with stablecoins directly into a US or Euro accounts. You can also receive stablecoins on Solana from external wallets.",
+      "You get a Solana wallet when they sign up on Bucx making it possible to transact with stablecoins. When you receive USD payments, they are settled in stablecoins and you can also make payments with stablecoins directly into US accounts. You can also receive stablecoins on Solana from external wallets and send to external wallets as well.",
     active: false,
   },
 ];
 
 // Add this near the top of your file
-const fallbackImage = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+const fallbackImage =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
 
 export default function Home() {
   const [activeFeature, setActiveFeature] = useState("global-accounts");
@@ -46,7 +47,7 @@ export default function Home() {
   const [expandedFeature, setExpandedFeature] = useState<string | null>(
     "global-accounts"
   );
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleNext = () => {
@@ -66,44 +67,43 @@ export default function Home() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-  
+
     try {
       const templateParams = {
         email: email,
         signup_date: new Date().toLocaleDateString(),
       };
-  
+
       await emailjs.send(
-        'service_j908tze',
-        'template_u6m4e27',
+        "service_j908tze",
+        "template_u6m4e27",
         templateParams,
-        'HbX6ZNCkLiZ5heY1K'
+        "HbX6ZNCkLiZ5heY1K"
       );
-      
-      toast.success('Thanks for signing up!', {
+
+      toast.success("Thanks for signing up!", {
         duration: 5000,
-        position: 'top-center',
+        position: "top-center",
         style: {
-          background: '#0C1B33',
-          color: '#fff',
+          background: "#0C1B33",
+          color: "#fff",
         },
       });
-      
-      setEmail('');
+
+      setEmail("");
     } catch (error: unknown) {
-      let errorMessage = 'Failed to join waitlist. Please try again.';
+      let errorMessage = "Failed to join waitlist. Please try again.";
       if (error instanceof Error) {
         errorMessage = error.message;
       } else {
         errorMessage = String(error);
       }
-      console.error('Error:', error);
+      console.error("Error:", error);
       toast.error(errorMessage);
     }
-  
+
     setLoading(false);
   };
-  
 
   return (
     <div className="min-h-screen bg-white">
@@ -144,9 +144,9 @@ export default function Home() {
                     height={75}
                     className="object-cover"
                     onError={(e) => {
-                      console.error('Failed to load flag:', e);
+                      console.error("Failed to load flag:", e);
                       const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
+                      target.style.display = "none";
                     }}
                   />
                 </span>
@@ -158,9 +158,9 @@ export default function Home() {
                     height={75}
                     className="object-cover"
                     onError={(e) => {
-                      console.error('Failed to load flag:', e);
+                      console.error("Failed to load flag:", e);
                       const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
+                      target.style.display = "none";
                     }}
                   />
                 </span>
@@ -172,9 +172,9 @@ export default function Home() {
                     height={75}
                     className="object-cover"
                     onError={(e) => {
-                      console.error('Failed to load flag:', e);
+                      console.error("Failed to load flag:", e);
                       const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
+                      target.style.display = "none";
                     }}
                   />
                 </span>
@@ -186,9 +186,9 @@ export default function Home() {
                     height={75}
                     className="object-cover"
                     onError={(e) => {
-                      console.error('Failed to load flag:', e);
+                      console.error("Failed to load flag:", e);
                       const target = e.target as HTMLImageElement;
-                      target.style.display = 'none';
+                      target.style.display = "none";
                     }}
                   />
                 </span>
@@ -253,7 +253,7 @@ export default function Home() {
                 priority
                 className="object-contain w-full"
                 onError={(e) => {
-                  console.error('Failed to load image:', e);
+                  console.error("Failed to load image:", e);
                   const target = e.target as HTMLImageElement;
                   target.src = fallbackImage;
                 }}
@@ -265,16 +265,16 @@ export default function Home() {
               <p className="text-base sm:text-sm text-gray-500 mb-2">
                 Powered by:
               </p>
-              <Image 
-                src="/solana.png" 
-                alt="Solana" 
+              <Image
+                src="/solana.png"
+                alt="Solana"
                 width={100}
                 height={16}
                 className="h-4 sm:h-4"
                 onError={(e) => {
-                  console.error('Failed to load Solana logo:', e);
+                  console.error("Failed to load Solana logo:", e);
                   const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
+                  target.style.display = "none";
                 }}
               />
             </div>
@@ -290,7 +290,7 @@ export default function Home() {
               priority
               className="object-contain"
               onError={(e) => {
-                console.error('Failed to load image:', e);
+                console.error("Failed to load image:", e);
                 const target = e.target as HTMLImageElement;
                 target.src = fallbackImage;
               }}
@@ -316,24 +316,27 @@ export default function Home() {
             {/* Hide the navigation tabs on mobile */}
             <div className="hidden sm:flex justify-center mb-16">
               <div className="inline-flex bg-white p-1.5 rounded-xl">
-                {["Global Accounts", "Cards", "P2P Payments", "Stablecoins"].map(
-                  (text, index) => (
-                    <button
-                      key={featuresContent[index].id}
-                      onClick={() => {
-                        setActiveFeature(featuresContent[index].id);
-                        setCurrentIndex(index);
-                      }}
-                      className={`px-10 py-3 rounded-lg transition-all text-base ${
-                        activeFeature === featuresContent[index].id
-                          ? "bg-[#0C1B33] text-white"
-                          : "text-gray-600 hover:text-gray-900"
-                      }`}
-                    >
-                      {text}
-                    </button>
-                  )
-                )}
+                {[
+                  "Global Accounts",
+                  "Cards",
+                  "P2P Payments",
+                  "Stablecoins",
+                ].map((text, index) => (
+                  <button
+                    key={featuresContent[index].id}
+                    onClick={() => {
+                      setActiveFeature(featuresContent[index].id);
+                      setCurrentIndex(index);
+                    }}
+                    className={`px-10 py-3 rounded-lg transition-all text-base ${
+                      activeFeature === featuresContent[index].id
+                        ? "bg-[#0C1B33] text-white"
+                        : "text-gray-600 hover:text-gray-900"
+                    }`}
+                  >
+                    {text}
+                  </button>
+                ))}
               </div>
             </div>
 
@@ -395,9 +398,13 @@ export default function Home() {
                           quality={100}
                           priority
                           onError={(e) => {
-                            console.error('Failed to load feature image:', feature.id, e);
+                            console.error(
+                              "Failed to load feature image:",
+                              feature.id,
+                              e
+                            );
                             const target = e.target as HTMLImageElement;
-                            target.style.display = 'none';
+                            target.style.display = "none";
                           }}
                         />
                       </div>
@@ -483,7 +490,11 @@ export default function Home() {
                     className="object-contain rounded-xl"
                     priority
                     onError={(e) => {
-                      console.error('Failed to load feature image:', activeFeature, e);
+                      console.error(
+                        "Failed to load feature image:",
+                        activeFeature,
+                        e
+                      );
                       const target = e.target as HTMLImageElement;
                       target.src = fallbackImage;
                     }}
@@ -540,12 +551,12 @@ export default function Home() {
               className="w-full px-4 py-3 rounded-lg border text-gray-700 border-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
               required
             />
-            <button 
+            <button
               type="submit"
               disabled={loading}
               className="w-full from-[#917AFD] to-[#6246EA] bg-gradient-to-r text-white px-8 py-3 font-medium rounded-lg hover:opacity-90 transition-all disabled:opacity-50"
             >
-              {loading ? 'Joining...' : 'Join the waitlist'}
+              {loading ? "Joining..." : "Join the waitlist"}
             </button>
           </form>
         </div>
@@ -573,8 +584,9 @@ export default function Home() {
               </div>
               <div className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
                 © {new Date().getFullYear()}, Bucx • All Rights Reserved
-<br/>
-Bucx is a financial technology company, not a bank. All banking services are provided by our licensed banking partners.
+                <br />
+                Bucx is a financial technology company, not a bank. All banking
+                services are provided by our licensed banking partners.
               </div>
               <a
                 href="https://twitter.com/bucxhq"
