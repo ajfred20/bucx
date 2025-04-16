@@ -17,7 +17,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <Toaster position="top-center" />
       <div className="bg-white rounded-lg shadow-md p-8 w-full max-w-md">
-        <h1 className="text-3xl font-semibold tracking-tight text-center mb-2">
+        <h1 className="text-5xl text-black font-semibold tracking-tight text-center mb-2">
           Login
         </h1>
         <p className="text-gray-600 text-center font-normal text-sm tracking-tight mb-8">
