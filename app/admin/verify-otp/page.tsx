@@ -42,10 +42,10 @@ const OtpPage = () => {
     <div className="min-h-screen flex items-center justify-center bg-white p-4">
       <Toaster position="top-center" />
       <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 w-full max-w-sm">
-        <h1 className="text-xl font-medium text-center mb-1">
+        <h1 className="text-4xl font-medium tracking-tight text-center mb-2">
           Verify Identity
         </h1>
-        <p className="text-gray-500 text-center text-sm mb-6">
+        <p className="text-gray-500 text-center text-sm mb-8">
           Enter the 6-digit code sent to your email
         </p>
 
@@ -85,7 +85,7 @@ const OtpPage = () => {
 
           <button
             type="submit"
-            className="w-full bg-black text-white text-sm py-3 rounded-md hover:bg-gray-800 transition-colors"
+            className="w-full bg-black text-white text-sm py-3 mt-6 rounded-md hover:bg-gray-800 transition-colors"
           >
             Verify
           </button>
