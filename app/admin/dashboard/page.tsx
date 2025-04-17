@@ -4,7 +4,7 @@ const Dashboard = () => {
   return (
     <div>
       <h2 className="text-3xl text-center tracking-tighter font-semibold">
-        This s the dashboard route
+        This is the dashboard route
       </h2>
     </div>
   );
