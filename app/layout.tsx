@@ -25,6 +25,8 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Bucx - Borderless Banking Built For You",
+    siteName: "Bucx",
+    url: "bucx.app",
     description:
       "Experience borderless banking with Bucx. Send, receive and manage your money across borders seamlessly.",
     type: "website",
