@@ -24,7 +24,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-white p-4">
       <Toaster position="top-center" />
       <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 w-full max-w-sm">
-        <h1 className="text-xl font-medium text-center mb-1">Login</h1>
+        <h1 className="text-4xl font-medium text-black tracking-tight text-center mb-1">Login</h1>
         <p className="text-gray-500 text-center text-sm mb-6">
           Enter your login details below to proceed
         </p>
