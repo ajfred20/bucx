@@ -42,7 +42,7 @@ const OtpPage = () => {
     <div className="min-h-screen flex items-center justify-center bg-white p-4">
       <Toaster position="top-center" />
       <div className="bg-white rounded-lg shadow-sm border border-gray-100 p-6 w-full max-w-sm">
-        <h1 className="text-4xl font-medium tracking-tight text-center mb-2">
+        <h1 className="text-4xl text-black font-medium tracking-tight text-center mb-2">
           Verify Identity
         </h1>
         <p className="text-gray-500 text-center text-sm mb-8">
