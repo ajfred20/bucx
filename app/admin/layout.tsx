@@ -1,4 +1,8 @@
+"use client";
+
 import Sidebar from "@/components/Sidebar";
+import { SidebarProvider } from "@/store/sidebar-context";
+import { cn } from "@/lib/utils";
 
 export default function AdminLayout({
   children,
@@ -6,9 +10,11 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex h-screen bg-gray-50">
-      <Sidebar />
-      <main className="flex-1 overflow-y-auto p-6">{children}</main>
-    </div>
+    <SidebarProvider>
+      <div className="flex h-screen bg-gray-50">
+        <Sidebar />
+        <main className="flex-1 overflow-y-auto">{children}</main>
+      </div>
+    </SidebarProvider>
   );
 }
