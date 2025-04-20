@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSidebar } from "@/store/sidebar-context";
 
 interface WaitlistUser {
@@ -14,22 +14,6 @@ const WaitlistPage = () => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [userToDelete, setUserToDelete] = useState<WaitlistUser | null>(null);
   const usersPerPage = 10;
-
-  // Check if mobile on mount and on resize
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    // Initial check
-    checkIfMobile();
-
-    // Add resize listener
-    window.addEventListener("resize", checkIfMobile);
-
-    // Clean up
-    return () => window.removeEventListener("resize", checkIfMobile);
-  }, []);
 
   // Mock data - replace with actual API call
   const mockUsers: WaitlistUser[] = Array(350)
@@ -301,6 +285,3 @@ const WaitlistPage = () => {
 };
 
 export default WaitlistPage;
-function setIsMobile(arg0: boolean) {
-  throw new Error("Function not implemented.");
-}
