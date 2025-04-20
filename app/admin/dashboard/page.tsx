@@ -31,17 +31,18 @@ const Dashboard = () => {
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
-            strokeWidth={1.5}
+            fill="none"
             stroke="currentColor"
-            className="size-6"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-5 h-5"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"
-            />
+            <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+            <path d="M9 3v18" />
           </svg>
         </button>
         <Breadcrumb>

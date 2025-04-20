@@ -17,6 +17,8 @@ interface WaitlistUser {
 
 const WaitlistPage = () => {
   const [page, setPage] = useState(1);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [userToDelete, setUserToDelete] = useState<WaitlistUser | null>(null);
   const usersPerPage = 10;
 
   // Mock data - replace with actual API call
@@ -37,6 +39,25 @@ const WaitlistPage = () => {
     if (newPage > 0 && newPage <= totalPages) {
       setPage(newPage);
     }
+  };
+
+  const handleDeleteClick = (user: WaitlistUser) => {
+    setUserToDelete(user);
+    setShowDeleteModal(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    // Implement actual delete logic here
+    console.log(`Deleting user ${userToDelete?.id}`);
+    setShowDeleteModal(false);
+    setUserToDelete(null);
+    // Make an API call here
+    // and then refresh user list
+  };
+
+  const handleCancelDelete = () => {
+    setShowDeleteModal(false);
+    setUserToDelete(null);
   };
 
   let collapsed = false;
@@ -177,7 +198,10 @@ const WaitlistPage = () => {
                 <td className="py-4 px-5">{user.email}</td>
                 <td className="py-4 px-5">{user.dateJoined}</td>
                 <td className="py-4 px-5 text-right">
-                  <button className="text-gray-500 hover:text-gray-800">
+                  <button
+                    className="text-gray-500 hover:text-gray-800"
+                    onClick={() => handleDeleteClick(user)}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -233,6 +257,36 @@ const WaitlistPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Delete Confirmation Modal */}
+      {showDeleteModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 mx-4">
+            <h2 className="text-2xl font-semibold tracking-tighter mb-4 text-black">
+              Confirm Deletion
+            </h2>
+            <p className="text-gray-600 mb-6">
+              Are you sure you want to delete this entry? This will permanently
+              erase this user from the waitlist database. This action cannot be
+              undone.
+            </p>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={handleCancelDelete}
+                className="px-6 py-2 border border-gray-300 rounded-lg text-black hover:bg-gray-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleDeleteConfirm}
+                className="px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-800"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
