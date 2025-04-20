@@ -1,12 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-} from "@/components/breadcrumb";
 import { useSidebar } from "@/store/sidebar-context";
 
 interface WaitlistUser {
