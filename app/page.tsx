@@ -195,6 +195,7 @@ export default function Home() {
                 <span className="text-gray-500 text-base sm:text-lg font-normal">
                   +150
                 </span>
+                <br />
               </span>
               Banking for African Professionals
             </h1>
