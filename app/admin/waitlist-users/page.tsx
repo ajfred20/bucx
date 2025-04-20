@@ -1,7 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+} from "@/components/breadcrumb";
+import { useSidebar } from "@/store/sidebar-context";
 
 interface WaitlistUser {
   id: number;
@@ -33,9 +39,59 @@ const WaitlistPage = () => {
     }
   };
 
+  let collapsed = false;
+  let toggleSidebar = () => {};
+
+  try {
+    const context = useSidebar();
+    collapsed = context.collapsed;
+    toggleSidebar = context.toggleSidebar;
+  } catch (error) {
+    console.error("Sidebar context not available:", error);
+  }
+
   return (
-    <div className="min-h-screen bg-black text-white p-6">
-      <h1 className="text-3xl font-bold text-center mb-10">Waitlist Users</h1>
+    <div className="min-h-screen bg-white p-6">
+      {/* Breadcrumb Navigation */}
+      <div className="flex items-center gap-4 mb-6 px-4 py-2 border-b text-black">
+        <button
+          onClick={toggleSidebar}
+          className="p-2 hover:bg-gray-100 rounded-lg"
+          aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="w-5 h-5"
+          >
+            <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+            <path d="M9 3v18" />
+          </svg>
+        </button>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/admin" className="text-black">
+              Admin
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <BreadcrumbPage className="text-black">
+              Waitlist Users
+            </BreadcrumbPage>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </div>
+
+      <h1 className="text-3xl font-semibold text-black tracking-tighter text-center mb-12">
+        Waitlist Users
+      </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         {/* Total Waitlist Users Card */}
@@ -102,21 +158,25 @@ const WaitlistPage = () => {
       {/* Users Table */}
       <div className="bg-white text-black rounded-xl overflow-hidden">
         <table className="w-full">
-          <thead className="border-b">
-            <tr className="text-left">
-              <th className="p-5 font-medium">S/N</th>
-              <th className="p-5 font-medium">Email Address</th>
-              <th className="p-5 font-medium">Date Joined</th>
-              <th className="p-5 font-medium"></th>
+          <thead>
+            <tr className="text-left border-b">
+              <th className="py-4 px-5 font-normal text-gray-600">S/N</th>
+              <th className="py-4 px-5 font-normal text-gray-600">
+                Email Address
+              </th>
+              <th className="py-4 px-5 font-normal text-gray-600">
+                Date Joined
+              </th>
+              <th className="py-4 px-5 font-normal text-gray-600"></th>
             </tr>
           </thead>
           <tbody>
             {currentUsers.map((user) => (
               <tr key={user.id} className="border-b">
-                <td className="p-5">{user.id}</td>
-                <td className="p-5">{user.email}</td>
-                <td className="p-5">{user.dateJoined}</td>
-                <td className="p-5">
+                <td className="py-4 px-5">{user.id}</td>
+                <td className="py-4 px-5">{user.email}</td>
+                <td className="py-4 px-5">{user.dateJoined}</td>
+                <td className="py-4 px-5 text-right">
                   <button className="text-gray-500 hover:text-gray-800">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -141,29 +201,32 @@ const WaitlistPage = () => {
         </table>
 
         {/* Pagination */}
-        <div className="flex justify-center items-center p-4 border-t">
-          <div className="flex space-x-2">
+        <div className="flex justify-center items-center py-4 border-t">
+          <div className="flex items-center space-x-2">
             <button
               onClick={() => handlePageChange(1)}
-              className="p-2 rounded bg-gray-200 hover:bg-gray-300"
+              className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
             >
               «
             </button>
             <button
               onClick={() => handlePageChange(page - 1)}
-              className="p-2 rounded bg-gray-200 hover:bg-gray-300"
+              className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
             >
               ‹
             </button>
+            <span className="px-4 text-gray-600">
+              Page {page} of {totalPages}
+            </span>
             <button
               onClick={() => handlePageChange(page + 1)}
-              className="p-2 rounded bg-gray-200 hover:bg-gray-300"
+              className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
             >
               ›
             </button>
             <button
               onClick={() => handlePageChange(totalPages)}
-              className="p-2 rounded bg-gray-200 hover:bg-gray-300"
+              className="w-10 h-10 rounded bg-gray-200 hover:bg-gray-300 flex items-center justify-center"
             >
               »
             </button>
