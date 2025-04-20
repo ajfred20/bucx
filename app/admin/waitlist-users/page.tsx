@@ -13,7 +13,6 @@ const WaitlistPage = () => {
   const [page, setPage] = useState(1);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [userToDelete, setUserToDelete] = useState<WaitlistUser | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
   const usersPerPage = 10;
 
   // Check if mobile on mount and on resize
