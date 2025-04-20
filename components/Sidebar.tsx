@@ -9,12 +9,10 @@ import { cn } from "@/lib/utils";
 export default function Sidebar() {
   const pathname = usePathname();
   let collapsed = false;
-  let toggleSidebar = () => {};
 
   try {
     const context = useSidebar();
     collapsed = context.collapsed;
-    toggleSidebar = context.toggleSidebar;
   } catch (error) {
     console.error("Sidebar context not available:", error);
     // Use default values for collapsed
