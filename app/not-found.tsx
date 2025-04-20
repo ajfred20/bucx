@@ -34,7 +34,7 @@ export default function NotFound() {
         </h1>
 
         <p
-          className="text-sm text-gray-600 mb-8 font-light tracking-tighter"
+          className="text-base text-gray-600 mb-8 font-normal tracking-tighter"
         >
           The Bucx Dev team are hard at work at getting this feature out. <br/>
           But once it's out you would be the first to know.chief 🫠
@@ -44,7 +44,7 @@ export default function NotFound() {
         >
           <Link
             href="/admin/dashboard"
-            className="inline-block px-6 py-3 border-2 border-purple-600 text-purple-600 font-medium tracking-tight rounded-lg hover:bg-purple-600 hover:text-white transition-colors duration-300"
+            className="inline-block px-6 py-3 border-2 border-gray-900 text-gray-900 font-medium tracking-tight rounded-lg hover:bg-gray-900 hover:text-white transition-colors duration-300"
           >
             Go to Dashboard
           </Link>
