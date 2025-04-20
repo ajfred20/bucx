@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
-import { ChevronRight } from "lucide-react";
+import React from "react";
 import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
   BreadcrumbPage,
 } from "@/components/breadcrumb";
-import { cn } from "@/lib/utils";
 import { useSidebar } from "@/store/sidebar-context";
 
 const Dashboard = () => {

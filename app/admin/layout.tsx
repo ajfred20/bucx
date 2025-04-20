@@ -2,7 +2,6 @@
 
 import Sidebar from "@/components/Sidebar";
 import { SidebarProvider } from "@/store/sidebar-context";
-import { cn } from "@/lib/utils";
 
 export default function AdminLayout({
   children,
