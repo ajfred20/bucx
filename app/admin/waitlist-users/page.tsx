@@ -1,6 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+} from "@/components/breadcrumb";
 import { useSidebar } from "@/store/sidebar-context";
 
 interface WaitlistUser {
@@ -88,7 +94,16 @@ const WaitlistPage = () => {
             <path d="M9 3v18" />
           </svg>
         </button>
-        <span className="text-gray-700 font-medium">Waitlist Users</span>
+        <Breadcrumb>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/admin" className="text-black">
+              Admin
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <BreadcrumbPage className="text-black">Waitlist</BreadcrumbPage>
+          </BreadcrumbItem>
+        </Breadcrumb>
       </div>
 
       <div className="p-4">
@@ -255,7 +270,7 @@ const WaitlistPage = () => {
       {showDeleteModal && (
         <div className="fixed inset-0 bg-black bg-opacity-30 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6 mx-auto">
-            <h2 className="text-2xl font-semibold mb-4 text-black">
+            <h2 className="text-2xl font-semibold tracking-tighter mb-4 text-black">
               Confirm Deletion
             </h2>
             <p className="text-gray-600 mb-6">
