@@ -36,7 +36,7 @@ export default function NotFound() {
           className="text-base text-gray-600 mb-8 font-normal tracking-tighter"
         >
           The Bucx Dev team are hard at work at getting this feature out. <br/>
-          But once it&apos;s out you would be the first to know.chief 🫠
+          But once it&apos;s out you would be the first to know.chief we promise🫠
         </p>
 
         <div
